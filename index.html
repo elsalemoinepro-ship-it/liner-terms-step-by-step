@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liner Terms – Step by Step</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+html,body{margin:0;height:100%;background:#0b1730;overflow:hidden;font-family:'Nunito Sans',sans-serif}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center}
+section{position:absolute;inset:0;width:1920px;height:1080px;box-sizing:border-box;opacity:0;pointer-events:none;transition:opacity .45s ease;overflow:hidden}
+section.on{opacity:1;pointer-events:auto}
+section *{box-sizing:border-box}
+section h1,section h2,section h3,section p{margin:0}
+section h1{font-size:96px;font-weight:600;line-height:1.1}
+section h2{font-size:64px;font-weight:600;line-height:1.15}
+section h3{font-size:44px;font-weight:600;line-height:1.2}
+section p{font-size:32px;line-height:1.4}
+section a{color:inherit;text-decoration:none}
+section aside{display:none}
+[data-build-in]{transition:opacity .4s ease,transform .4s ease}
+[data-build-in].hid{opacity:0;transform:translateY(16px)}
+#bar{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;gap:12px;padding:10px;opacity:.25;transition:opacity .2s}
+#bar:hover{opacity:1}
+#bar button{border:0;border-radius:8px;padding:8px 14px;font:700 15px 'Nunito Sans',sans-serif;background:#8a95d9;color:#fff;cursor:pointer}
+#bar span{color:#fff;font:600 15px 'Nunito Sans',sans-serif;min-width:70px;text-align:center}
+#notes{position:fixed;right:16px;top:16px;width:380px;max-height:60vh;overflow:auto;background:#fffbe9;color:#222;border-radius:10px;padding:14px 16px;font:15px/1.45 'Nunito Sans',sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.35);display:none}
+</style></head><body>
+<div id="stage">
+<section id="journey" data-transition="magic" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">The journey of the goods</h2>
+<svg aria-label="Port scene: departure warehouse, crane, ship at sea, crane, arrival warehouse" viewBox="0 0 1664 220" width="1664" height="220" style="position:absolute;left:128px;top:330px;width:1664px;height:220px">
+<rect x="592" y="185" width="480" height="35" fill="#cfe6f7"/>
+<rect x="0" y="200" width="592" height="20" fill="#c9ced9"/><rect x="1072" y="200" width="592" height="20" fill="#c9ced9"/>
+<polygon points="40,100 160,55 280,100" fill="#8a95d9"/><rect x="55" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="130" y="140" width="60" height="60" fill="#13294b"/>
+<polygon points="1384,100 1504,55 1624,100" fill="#8a95d9"/><rect x="1399" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="1474" y="140" width="60" height="60" fill="#13294b"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="420" y1="200" x2="420" y2="30"/><line x1="380" y1="40" x2="640" y2="40"/><line x1="420" y1="30" x2="380" y2="40"/><line x1="420" y1="30" x2="640" y2="40"/></g>
+<line x1="600" y1="40" x2="600" y2="110" stroke="#13294b" stroke-width="3"/><rect x="575" y="110" width="50" height="30" fill="#e8891c"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="1244" y1="200" x2="1244" y2="30"/><line x1="1284" y1="40" x2="1024" y2="40"/><line x1="1244" y1="30" x2="1284" y2="40"/><line x1="1244" y1="30" x2="1024" y2="40"/></g>
+<line x1="1064" y1="40" x2="1064" y2="110" stroke="#13294b" stroke-width="3"/><rect x="1039" y="110" width="50" height="30" fill="#1677b8"/>
+<polygon points="640,150 1030,150 1000,195 670,195" fill="#13294b"/>
+<rect x="690" y="115" width="55" height="35" fill="#d64545"/><rect x="750" y="115" width="55" height="35" fill="#1677b8"/><rect x="810" y="115" width="55" height="35" fill="#e8891c"/><rect x="870" y="115" width="55" height="35" fill="#1f9d55"/>
+<rect x="720" y="80" width="55" height="35" fill="#e8891c"/><rect x="780" y="80" width="55" height="35" fill="#d64545"/><rect x="840" y="80" width="55" height="35" fill="#1677b8"/>
+<rect x="950" y="95" width="40" height="55" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/>
+</svg>
+<p id="box0" style="position:absolute;left:134px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p id="box1" style="position:absolute;left:454px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Loading</p>
+<p id="box2" style="position:absolute;left:726px;top:600px;width:468px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Sea freight</p>
+<p id="box3" style="position:absolute;left:1206px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Unloading</p>
+<p id="box4" style="position:absolute;left:1478px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p style="position:absolute;left:128px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Departure terminal</p>
+<p style="position:absolute;left:448px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:720px;top:555px;width:480px;font-size:24px;color:#6a7385;text-align:center">On board · at sea</p>
+<p style="position:absolute;left:1200px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:1472px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Arrival terminal</p>
+
+
+<p style="position:absolute;left:128px;top:830px;width:1664px;font-size:34px;line-height:1.3;color:#13294b">Between the two terminal gates, the goods go through <b>5 steps</b>. Each one has a cost.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 1</p>
+<aside>Faire décrire la chaîne par les étudiants avant d'afficher : entrepôt du terminal, quai, navire, quai, terminal. Insister : chaque étape a un coût, et la question est « qui la paie ? ».</aside>
+</section>
+<section id="sea" data-transition="magic" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">Sea freight is always in the price</h2>
+<svg aria-label="Port scene: departure warehouse, crane, ship at sea, crane, arrival warehouse" viewBox="0 0 1664 220" width="1664" height="220" style="position:absolute;left:128px;top:330px;width:1664px;height:220px">
+<rect x="592" y="185" width="480" height="35" fill="#cfe6f7"/>
+<rect x="0" y="200" width="592" height="20" fill="#c9ced9"/><rect x="1072" y="200" width="592" height="20" fill="#c9ced9"/>
+<polygon points="40,100 160,55 280,100" fill="#8a95d9"/><rect x="55" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="130" y="140" width="60" height="60" fill="#13294b"/>
+<polygon points="1384,100 1504,55 1624,100" fill="#8a95d9"/><rect x="1399" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="1474" y="140" width="60" height="60" fill="#13294b"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="420" y1="200" x2="420" y2="30"/><line x1="380" y1="40" x2="640" y2="40"/><line x1="420" y1="30" x2="380" y2="40"/><line x1="420" y1="30" x2="640" y2="40"/></g>
+<line x1="600" y1="40" x2="600" y2="110" stroke="#13294b" stroke-width="3"/><rect x="575" y="110" width="50" height="30" fill="#e8891c"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="1244" y1="200" x2="1244" y2="30"/><line x1="1284" y1="40" x2="1024" y2="40"/><line x1="1244" y1="30" x2="1284" y2="40"/><line x1="1244" y1="30" x2="1024" y2="40"/></g>
+<line x1="1064" y1="40" x2="1064" y2="110" stroke="#13294b" stroke-width="3"/><rect x="1039" y="110" width="50" height="30" fill="#1677b8"/>
+<polygon points="640,150 1030,150 1000,195 670,195" fill="#13294b"/>
+<rect x="690" y="115" width="55" height="35" fill="#d64545"/><rect x="750" y="115" width="55" height="35" fill="#1677b8"/><rect x="810" y="115" width="55" height="35" fill="#e8891c"/><rect x="870" y="115" width="55" height="35" fill="#1f9d55"/>
+<rect x="720" y="80" width="55" height="35" fill="#e8891c"/><rect x="780" y="80" width="55" height="35" fill="#d64545"/><rect x="840" y="80" width="55" height="35" fill="#1677b8"/>
+<rect x="950" y="95" width="40" height="55" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/>
+</svg>
+<p id="box0" style="position:absolute;left:134px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p id="box1" style="position:absolute;left:454px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Loading</p>
+<p id="box2" style="position:absolute;left:726px;top:600px;width:468px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Sea freight</p>
+<p id="box3" style="position:absolute;left:1206px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Unloading</p>
+<p id="box4" style="position:absolute;left:1478px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p style="position:absolute;left:128px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Departure terminal</p>
+<p style="position:absolute;left:448px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:720px;top:555px;width:480px;font-size:24px;color:#6a7385;text-align:center">On board · at sea</p>
+<p style="position:absolute;left:1200px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:1472px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Arrival terminal</p>
+
+<div style="position:absolute;left:128px;top:770px;display:flex;flex-direction:row;gap:24px;align-items:center"><div style="width:48px;height:28px;background:#1677b8;border-radius:6px"></div><p style="font-size:24px">included in the freight</p><div style="width:48px;height:28px;background:#ffffff;border:3px dashed #9aa2b4;border-radius:6px"></div><p style="font-size:24px">paid separately</p></div>
+<p style="position:absolute;left:128px;top:830px;width:1664px;font-size:34px;line-height:1.3;color:#13294b">The carrier always charges the sea voyage. <b>The question is: what about the handling at each port?</b></p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 2</p>
+<aside>Le fret maritime au sens strict est toujours facturé par le transporteur. Les liner terms ne servent qu'à préciser ce qui est inclus AUTOUR du voyage.</aside>
+</section>
+<section id="three" data-transition="magic" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">Three possible starting points</h2>
+<svg aria-label="Port scene: departure warehouse, crane, ship at sea, crane, arrival warehouse" viewBox="0 0 1664 220" width="1664" height="220" style="position:absolute;left:128px;top:330px;width:1664px;height:220px">
+<rect x="592" y="185" width="480" height="35" fill="#cfe6f7"/>
+<rect x="0" y="200" width="592" height="20" fill="#c9ced9"/><rect x="1072" y="200" width="592" height="20" fill="#c9ced9"/>
+<polygon points="40,100 160,55 280,100" fill="#8a95d9"/><rect x="55" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="130" y="140" width="60" height="60" fill="#13294b"/>
+<polygon points="1384,100 1504,55 1624,100" fill="#8a95d9"/><rect x="1399" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="1474" y="140" width="60" height="60" fill="#13294b"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="420" y1="200" x2="420" y2="30"/><line x1="380" y1="40" x2="640" y2="40"/><line x1="420" y1="30" x2="380" y2="40"/><line x1="420" y1="30" x2="640" y2="40"/></g>
+<line x1="600" y1="40" x2="600" y2="110" stroke="#13294b" stroke-width="3"/><rect x="575" y="110" width="50" height="30" fill="#e8891c"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="1244" y1="200" x2="1244" y2="30"/><line x1="1284" y1="40" x2="1024" y2="40"/><line x1="1244" y1="30" x2="1284" y2="40"/><line x1="1244" y1="30" x2="1024" y2="40"/></g>
+<line x1="1064" y1="40" x2="1064" y2="110" stroke="#13294b" stroke-width="3"/><rect x="1039" y="110" width="50" height="30" fill="#1677b8"/>
+<polygon points="640,150 1030,150 1000,195 670,195" fill="#13294b"/>
+<rect x="690" y="115" width="55" height="35" fill="#d64545"/><rect x="750" y="115" width="55" height="35" fill="#1677b8"/><rect x="810" y="115" width="55" height="35" fill="#e8891c"/><rect x="870" y="115" width="55" height="35" fill="#1f9d55"/>
+<rect x="720" y="80" width="55" height="35" fill="#e8891c"/><rect x="780" y="80" width="55" height="35" fill="#d64545"/><rect x="840" y="80" width="55" height="35" fill="#1677b8"/>
+<rect x="950" y="95" width="40" height="55" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/>
+</svg>
+<p id="box0" style="position:absolute;left:134px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p id="box1" style="position:absolute;left:454px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Loading</p>
+<p id="box2" style="position:absolute;left:726px;top:600px;width:468px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Sea freight</p>
+<p id="box3" style="position:absolute;left:1206px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Unloading</p>
+<p id="box4" style="position:absolute;left:1478px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p style="position:absolute;left:128px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Departure terminal</p>
+<p style="position:absolute;left:448px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:720px;top:555px;width:480px;font-size:24px;color:#6a7385;text-align:center">On board · at sea</p>
+<p style="position:absolute;left:1200px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:1472px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Arrival terminal</p>
+<div id="ml-gatein" data-build-in="pop 1" style="position:absolute;left:126px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-gatein" data-build-in="pop 1" style="position:absolute;left:28px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">GATE IN</p>
+<div id="ml-linerin" data-build-in="pop 2" style="position:absolute;left:446px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-linerin" data-build-in="pop 2" style="position:absolute;left:348px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">LINER IN</p>
+<div id="ml-freein" data-build-in="pop 3" style="position:absolute;left:718px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-freein" data-build-in="pop 3" style="position:absolute;left:620px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">FREE IN</p>
+
+<p style="position:absolute;left:128px;top:830px;width:1664px;font-size:34px;line-height:1.3;color:#13294b">On the departure side, the carrier can take charge of the goods at <b>3 different points</b>.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 3</p>
+<aside>Les trois repères apparaissent un par un. Faire deviner : où le transporteur peut-il commencer son service ? À la porte du terminal, sur le quai sous palan, ou à bord.</aside>
+</section>
+<section id="gatein" data-transition="magic" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">Gate In: from the terminal gate</h2>
+<svg aria-label="Port scene: departure warehouse, crane, ship at sea, crane, arrival warehouse" viewBox="0 0 1664 220" width="1664" height="220" style="position:absolute;left:128px;top:330px;width:1664px;height:220px">
+<rect x="592" y="185" width="480" height="35" fill="#cfe6f7"/>
+<rect x="0" y="200" width="592" height="20" fill="#c9ced9"/><rect x="1072" y="200" width="592" height="20" fill="#c9ced9"/>
+<polygon points="40,100 160,55 280,100" fill="#8a95d9"/><rect x="55" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="130" y="140" width="60" height="60" fill="#13294b"/>
+<polygon points="1384,100 1504,55 1624,100" fill="#8a95d9"/><rect x="1399" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="1474" y="140" width="60" height="60" fill="#13294b"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="420" y1="200" x2="420" y2="30"/><line x1="380" y1="40" x2="640" y2="40"/><line x1="420" y1="30" x2="380" y2="40"/><line x1="420" y1="30" x2="640" y2="40"/></g>
+<line x1="600" y1="40" x2="600" y2="110" stroke="#13294b" stroke-width="3"/><rect x="575" y="110" width="50" height="30" fill="#e8891c"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="1244" y1="200" x2="1244" y2="30"/><line x1="1284" y1="40" x2="1024" y2="40"/><line x1="1244" y1="30" x2="1284" y2="40"/><line x1="1244" y1="30" x2="1024" y2="40"/></g>
+<line x1="1064" y1="40" x2="1064" y2="110" stroke="#13294b" stroke-width="3"/><rect x="1039" y="110" width="50" height="30" fill="#1677b8"/>
+<polygon points="640,150 1030,150 1000,195 670,195" fill="#13294b"/>
+<rect x="690" y="115" width="55" height="35" fill="#d64545"/><rect x="750" y="115" width="55" height="35" fill="#1677b8"/><rect x="810" y="115" width="55" height="35" fill="#e8891c"/><rect x="870" y="115" width="55" height="35" fill="#1f9d55"/>
+<rect x="720" y="80" width="55" height="35" fill="#e8891c"/><rect x="780" y="80" width="55" height="35" fill="#d64545"/><rect x="840" y="80" width="55" height="35" fill="#1677b8"/>
+<rect x="950" y="95" width="40" height="55" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/>
+</svg>
+<p id="box0" style="position:absolute;left:134px;top:600px;width:308px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p id="box1" style="position:absolute;left:454px;top:600px;width:260px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Loading</p>
+<p id="box2" style="position:absolute;left:726px;top:600px;width:468px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Sea freight</p>
+<p id="box3" style="position:absolute;left:1206px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Unloading</p>
+<p id="box4" style="position:absolute;left:1478px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p style="position:absolute;left:128px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Departure terminal</p>
+<p style="position:absolute;left:448px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:720px;top:555px;width:480px;font-size:24px;color:#6a7385;text-align:center">On board · at sea</p>
+<p style="position:absolute;left:1200px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:1472px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Arrival terminal</p>
+<div id="ml-gatein" style="position:absolute;left:126px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-gatein" style="position:absolute;left:28px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">GATE IN</p>
+<div style="position:absolute;left:128px;top:770px;display:flex;flex-direction:row;gap:24px;align-items:center"><div style="width:48px;height:28px;background:#1677b8;border-radius:6px"></div><p style="font-size:24px">included in the freight</p><div style="width:48px;height:28px;background:#ffffff;border:3px dashed #9aa2b4;border-radius:6px"></div><p style="font-size:24px">paid separately</p></div>
+<p style="position:absolute;left:128px;top:830px;width:1664px;font-size:34px;line-height:1.3;color:#13294b"><b>GATE IN</b>: the carrier takes the goods at the terminal gate → terminal handling <b>and</b> loading are in the freight.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 4</p>
+<aside>Gate = la porte du terminal portuaire. C'est le service le plus complet côté départ.</aside>
+</section>
+<section id="linerin" data-transition="magic" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">Liner In: from the quay</h2>
+<svg aria-label="Port scene: departure warehouse, crane, ship at sea, crane, arrival warehouse" viewBox="0 0 1664 220" width="1664" height="220" style="position:absolute;left:128px;top:330px;width:1664px;height:220px">
+<rect x="592" y="185" width="480" height="35" fill="#cfe6f7"/>
+<rect x="0" y="200" width="592" height="20" fill="#c9ced9"/><rect x="1072" y="200" width="592" height="20" fill="#c9ced9"/>
+<polygon points="40,100 160,55 280,100" fill="#8a95d9"/><rect x="55" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="130" y="140" width="60" height="60" fill="#13294b"/>
+<polygon points="1384,100 1504,55 1624,100" fill="#8a95d9"/><rect x="1399" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="1474" y="140" width="60" height="60" fill="#13294b"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="420" y1="200" x2="420" y2="30"/><line x1="380" y1="40" x2="640" y2="40"/><line x1="420" y1="30" x2="380" y2="40"/><line x1="420" y1="30" x2="640" y2="40"/></g>
+<line x1="600" y1="40" x2="600" y2="110" stroke="#13294b" stroke-width="3"/><rect x="575" y="110" width="50" height="30" fill="#e8891c"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="1244" y1="200" x2="1244" y2="30"/><line x1="1284" y1="40" x2="1024" y2="40"/><line x1="1244" y1="30" x2="1284" y2="40"/><line x1="1244" y1="30" x2="1024" y2="40"/></g>
+<line x1="1064" y1="40" x2="1064" y2="110" stroke="#13294b" stroke-width="3"/><rect x="1039" y="110" width="50" height="30" fill="#1677b8"/>
+<polygon points="640,150 1030,150 1000,195 670,195" fill="#13294b"/>
+<rect x="690" y="115" width="55" height="35" fill="#d64545"/><rect x="750" y="115" width="55" height="35" fill="#1677b8"/><rect x="810" y="115" width="55" height="35" fill="#e8891c"/><rect x="870" y="115" width="55" height="35" fill="#1f9d55"/>
+<rect x="720" y="80" width="55" height="35" fill="#e8891c"/><rect x="780" y="80" width="55" height="35" fill="#d64545"/><rect x="840" y="80" width="55" height="35" fill="#1677b8"/>
+<rect x="950" y="95" width="40" height="55" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/>
+</svg>
+<p id="box0" style="position:absolute;left:134px;top:600px;width:308px;height:84px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p id="box1" style="position:absolute;left:454px;top:600px;width:260px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Loading</p>
+<p id="box2" style="position:absolute;left:726px;top:600px;width:468px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Sea freight</p>
+<p id="box3" style="position:absolute;left:1206px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Unloading</p>
+<p id="box4" style="position:absolute;left:1478px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p style="position:absolute;left:128px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Departure terminal</p>
+<p style="position:absolute;left:448px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:720px;top:555px;width:480px;font-size:24px;color:#6a7385;text-align:center">On board · at sea</p>
+<p style="position:absolute;left:1200px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:1472px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Arrival terminal</p>
+<p data-build-in="fade" style="position:absolute;left:128px;top:700px;width:320px;font-size:24px;font-weight:700;color:#b35f00;text-align:center">Shipper pays</p>
+<div id="ml-linerin" style="position:absolute;left:446px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-linerin" style="position:absolute;left:348px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">LINER IN</p>
+<div style="position:absolute;left:128px;top:770px;display:flex;flex-direction:row;gap:24px;align-items:center"><div style="width:48px;height:28px;background:#1677b8;border-radius:6px"></div><p style="font-size:24px">included in the freight</p><div style="width:48px;height:28px;background:#ffffff;border:3px dashed #9aa2b4;border-radius:6px"></div><p style="font-size:24px">paid separately</p></div>
+<p style="position:absolute;left:128px;top:830px;width:1664px;font-size:34px;line-height:1.3;color:#13294b"><b>LINER IN</b>: the carrier takes the goods on the quay, under the ship's tackle → loading is in the freight, terminal handling is not.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 5</p>
+<aside>Liner = sous palan, sur le quai. Le chargement à bord est inclus ; la manutention dans le terminal reste à la charge du chargeur.</aside>
+</section>
+<section id="freein" data-transition="magic" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">Free In: from on board</h2>
+<svg aria-label="Port scene: departure warehouse, crane, ship at sea, crane, arrival warehouse" viewBox="0 0 1664 220" width="1664" height="220" style="position:absolute;left:128px;top:330px;width:1664px;height:220px">
+<rect x="592" y="185" width="480" height="35" fill="#cfe6f7"/>
+<rect x="0" y="200" width="592" height="20" fill="#c9ced9"/><rect x="1072" y="200" width="592" height="20" fill="#c9ced9"/>
+<polygon points="40,100 160,55 280,100" fill="#8a95d9"/><rect x="55" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="130" y="140" width="60" height="60" fill="#13294b"/>
+<polygon points="1384,100 1504,55 1624,100" fill="#8a95d9"/><rect x="1399" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="1474" y="140" width="60" height="60" fill="#13294b"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="420" y1="200" x2="420" y2="30"/><line x1="380" y1="40" x2="640" y2="40"/><line x1="420" y1="30" x2="380" y2="40"/><line x1="420" y1="30" x2="640" y2="40"/></g>
+<line x1="600" y1="40" x2="600" y2="110" stroke="#13294b" stroke-width="3"/><rect x="575" y="110" width="50" height="30" fill="#e8891c"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="1244" y1="200" x2="1244" y2="30"/><line x1="1284" y1="40" x2="1024" y2="40"/><line x1="1244" y1="30" x2="1284" y2="40"/><line x1="1244" y1="30" x2="1024" y2="40"/></g>
+<line x1="1064" y1="40" x2="1064" y2="110" stroke="#13294b" stroke-width="3"/><rect x="1039" y="110" width="50" height="30" fill="#1677b8"/>
+<polygon points="640,150 1030,150 1000,195 670,195" fill="#13294b"/>
+<rect x="690" y="115" width="55" height="35" fill="#d64545"/><rect x="750" y="115" width="55" height="35" fill="#1677b8"/><rect x="810" y="115" width="55" height="35" fill="#e8891c"/><rect x="870" y="115" width="55" height="35" fill="#1f9d55"/>
+<rect x="720" y="80" width="55" height="35" fill="#e8891c"/><rect x="780" y="80" width="55" height="35" fill="#d64545"/><rect x="840" y="80" width="55" height="35" fill="#1677b8"/>
+<rect x="950" y="95" width="40" height="55" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/>
+</svg>
+<p id="box0" style="position:absolute;left:134px;top:600px;width:308px;height:84px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p id="box1" style="position:absolute;left:454px;top:600px;width:260px;height:84px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Loading</p>
+<p id="box2" style="position:absolute;left:726px;top:600px;width:468px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Sea freight</p>
+<p id="box3" style="position:absolute;left:1206px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Unloading</p>
+<p id="box4" style="position:absolute;left:1478px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p style="position:absolute;left:128px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Departure terminal</p>
+<p style="position:absolute;left:448px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:720px;top:555px;width:480px;font-size:24px;color:#6a7385;text-align:center">On board · at sea</p>
+<p style="position:absolute;left:1200px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:1472px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Arrival terminal</p>
+<p data-build-in="fade" style="position:absolute;left:128px;top:700px;width:320px;font-size:24px;font-weight:700;color:#b35f00;text-align:center">Shipper pays</p>
+<p data-build-in="fade" style="position:absolute;left:448px;top:700px;width:272px;font-size:24px;font-weight:700;color:#b35f00;text-align:center">Shipper pays</p>
+<div id="ml-freein" style="position:absolute;left:718px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-freein" style="position:absolute;left:620px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">FREE IN</p>
+<div style="position:absolute;left:128px;top:770px;display:flex;flex-direction:row;gap:24px;align-items:center"><div style="width:48px;height:28px;background:#1677b8;border-radius:6px"></div><p style="font-size:24px">included in the freight</p><div style="width:48px;height:28px;background:#ffffff;border:3px dashed #9aa2b4;border-radius:6px"></div><p style="font-size:24px">paid separately</p></div>
+<p style="position:absolute;left:128px;top:830px;width:1664px;font-size:34px;line-height:1.3;color:#13294b"><b>FREE IN</b>: the carrier takes the goods on board → loading is paid separately by the shipper.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 6</p>
+<aside>Free = le transporteur commence à bord. Tout ce qui précède est payé à part par le chargeur. Moment idéal pour poser la question : « Free, gratuit pour qui ? »</aside>
+</section>
+<section id="arrival" data-transition="magic" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">Same logic on arrival</h2>
+<svg aria-label="Port scene: departure warehouse, crane, ship at sea, crane, arrival warehouse" viewBox="0 0 1664 220" width="1664" height="220" style="position:absolute;left:128px;top:330px;width:1664px;height:220px">
+<rect x="592" y="185" width="480" height="35" fill="#cfe6f7"/>
+<rect x="0" y="200" width="592" height="20" fill="#c9ced9"/><rect x="1072" y="200" width="592" height="20" fill="#c9ced9"/>
+<polygon points="40,100 160,55 280,100" fill="#8a95d9"/><rect x="55" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="130" y="140" width="60" height="60" fill="#13294b"/>
+<polygon points="1384,100 1504,55 1624,100" fill="#8a95d9"/><rect x="1399" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="1474" y="140" width="60" height="60" fill="#13294b"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="420" y1="200" x2="420" y2="30"/><line x1="380" y1="40" x2="640" y2="40"/><line x1="420" y1="30" x2="380" y2="40"/><line x1="420" y1="30" x2="640" y2="40"/></g>
+<line x1="600" y1="40" x2="600" y2="110" stroke="#13294b" stroke-width="3"/><rect x="575" y="110" width="50" height="30" fill="#e8891c"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="1244" y1="200" x2="1244" y2="30"/><line x1="1284" y1="40" x2="1024" y2="40"/><line x1="1244" y1="30" x2="1284" y2="40"/><line x1="1244" y1="30" x2="1024" y2="40"/></g>
+<line x1="1064" y1="40" x2="1064" y2="110" stroke="#13294b" stroke-width="3"/><rect x="1039" y="110" width="50" height="30" fill="#1677b8"/>
+<polygon points="640,150 1030,150 1000,195 670,195" fill="#13294b"/>
+<rect x="690" y="115" width="55" height="35" fill="#d64545"/><rect x="750" y="115" width="55" height="35" fill="#1677b8"/><rect x="810" y="115" width="55" height="35" fill="#e8891c"/><rect x="870" y="115" width="55" height="35" fill="#1f9d55"/>
+<rect x="720" y="80" width="55" height="35" fill="#e8891c"/><rect x="780" y="80" width="55" height="35" fill="#d64545"/><rect x="840" y="80" width="55" height="35" fill="#1677b8"/>
+<rect x="950" y="95" width="40" height="55" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/>
+</svg>
+<p id="box0" style="position:absolute;left:134px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p id="box1" style="position:absolute;left:454px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Loading</p>
+<p id="box2" style="position:absolute;left:726px;top:600px;width:468px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Sea freight</p>
+<p id="box3" style="position:absolute;left:1206px;top:600px;width:260px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Unloading</p>
+<p id="box4" style="position:absolute;left:1478px;top:600px;width:308px;height:84px;background:#e4e8f2;color:#13294b;border:3px solid #e4e8f2;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p style="position:absolute;left:128px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Departure terminal</p>
+<p style="position:absolute;left:448px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:720px;top:555px;width:480px;font-size:24px;color:#6a7385;text-align:center">On board · at sea</p>
+<p style="position:absolute;left:1200px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:1472px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Arrival terminal</p>
+<div id="ml-freeout" data-build-in="pop 1" style="position:absolute;left:1198px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-freeout" data-build-in="pop 1" style="position:absolute;left:1100px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">FREE OUT</p>
+<div id="ml-linerout" data-build-in="pop 2" style="position:absolute;left:1470px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-linerout" data-build-in="pop 2" style="position:absolute;left:1372px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">LINER OUT</p>
+<div id="ml-gateout" data-build-in="pop 3" style="position:absolute;left:1790px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-gateout" data-build-in="pop 3" style="position:absolute;left:1692px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">GATE OUT</p>
+
+<p style="position:absolute;left:128px;top:830px;width:1664px;font-size:34px;line-height:1.3;color:#13294b">On arrival: <b>FREE OUT</b> (on board) · <b>LINER OUT</b> (on the quay) · <b>GATE OUT</b> (terminal gate).</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 7</p>
+<aside>Effet miroir : les trois mêmes positions, côté port d'arrivée. Faire prédire aux étudiants ce que chaque position inclut avant de passer à la suite.</aside>
+</section>
+<section id="lifo" data-transition="magic" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">Combine: first part = IN, second part = OUT</h2>
+<svg aria-label="Port scene: departure warehouse, crane, ship at sea, crane, arrival warehouse" viewBox="0 0 1664 220" width="1664" height="220" style="position:absolute;left:128px;top:330px;width:1664px;height:220px">
+<rect x="592" y="185" width="480" height="35" fill="#cfe6f7"/>
+<rect x="0" y="200" width="592" height="20" fill="#c9ced9"/><rect x="1072" y="200" width="592" height="20" fill="#c9ced9"/>
+<polygon points="40,100 160,55 280,100" fill="#8a95d9"/><rect x="55" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="130" y="140" width="60" height="60" fill="#13294b"/>
+<polygon points="1384,100 1504,55 1624,100" fill="#8a95d9"/><rect x="1399" y="100" width="210" height="100" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/><rect x="1474" y="140" width="60" height="60" fill="#13294b"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="420" y1="200" x2="420" y2="30"/><line x1="380" y1="40" x2="640" y2="40"/><line x1="420" y1="30" x2="380" y2="40"/><line x1="420" y1="30" x2="640" y2="40"/></g>
+<line x1="600" y1="40" x2="600" y2="110" stroke="#13294b" stroke-width="3"/><rect x="575" y="110" width="50" height="30" fill="#e8891c"/>
+<g stroke="#13294b" stroke-width="5" fill="none"><line x1="1244" y1="200" x2="1244" y2="30"/><line x1="1284" y1="40" x2="1024" y2="40"/><line x1="1244" y1="30" x2="1284" y2="40"/><line x1="1244" y1="30" x2="1024" y2="40"/></g>
+<line x1="1064" y1="40" x2="1064" y2="110" stroke="#13294b" stroke-width="3"/><rect x="1039" y="110" width="50" height="30" fill="#1677b8"/>
+<polygon points="640,150 1030,150 1000,195 670,195" fill="#13294b"/>
+<rect x="690" y="115" width="55" height="35" fill="#d64545"/><rect x="750" y="115" width="55" height="35" fill="#1677b8"/><rect x="810" y="115" width="55" height="35" fill="#e8891c"/><rect x="870" y="115" width="55" height="35" fill="#1f9d55"/>
+<rect x="720" y="80" width="55" height="35" fill="#e8891c"/><rect x="780" y="80" width="55" height="35" fill="#d64545"/><rect x="840" y="80" width="55" height="35" fill="#1677b8"/>
+<rect x="950" y="95" width="40" height="55" fill="#dfe5f2" stroke="#13294b" stroke-width="3"/>
+</svg>
+<p id="box0" style="position:absolute;left:134px;top:600px;width:308px;height:84px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p id="box1" style="position:absolute;left:454px;top:600px;width:260px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Loading</p>
+<p id="box2" style="position:absolute;left:726px;top:600px;width:468px;height:84px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Sea freight</p>
+<p id="box3" style="position:absolute;left:1206px;top:600px;width:260px;height:84px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Unloading</p>
+<p id="box4" style="position:absolute;left:1478px;top:600px;width:308px;height:84px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:2.9">Terminal handling</p>
+<p style="position:absolute;left:128px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Departure terminal</p>
+<p style="position:absolute;left:448px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:720px;top:555px;width:480px;font-size:24px;color:#6a7385;text-align:center">On board · at sea</p>
+<p style="position:absolute;left:1200px;top:555px;width:272px;font-size:24px;color:#6a7385;text-align:center">Quay</p>
+<p style="position:absolute;left:1472px;top:555px;width:320px;font-size:24px;color:#6a7385;text-align:center">Arrival terminal</p>
+<p data-build-in="fade" style="position:absolute;left:128px;top:700px;width:320px;font-size:24px;font-weight:700;color:#b35f00;text-align:center">Shipper pays</p>
+<p data-build-in="fade" style="position:absolute;left:1200px;top:700px;width:272px;font-size:24px;font-weight:700;color:#b35f00;text-align:center">Consignee pays</p>
+<p data-build-in="fade" style="position:absolute;left:1472px;top:700px;width:320px;font-size:24px;font-weight:700;color:#b35f00;text-align:center">Consignee pays</p>
+<div id="ml-linerin" style="position:absolute;left:446px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-linerin" style="position:absolute;left:348px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">LINER IN</p>
+<div id="ml-freeout" style="position:absolute;left:1198px;top:300px;width:4px;height:400px;background:#8a95d9"></div>
+<p id="mp-freeout" style="position:absolute;left:1100px;top:250px;width:200px;background:#8a95d9;color:#ffffff;border-radius:24px;padding:6px 0px;font-size:26px;font-weight:800;text-align:center">FREE OUT</p>
+<div style="position:absolute;left:128px;top:770px;display:flex;flex-direction:row;gap:24px;align-items:center"><div style="width:48px;height:28px;background:#1677b8;border-radius:6px"></div><p style="font-size:24px">included in the freight</p><div style="width:48px;height:28px;background:#ffffff;border:3px dashed #9aa2b4;border-radius:6px"></div><p style="font-size:24px">paid separately</p></div>
+<p style="position:absolute;left:128px;top:830px;width:1664px;font-size:34px;line-height:1.3;color:#13294b"><b>LIFO = Liner In / Free Out</b>: the freight covers loading + the sea voyage. Unloading is paid by the consignee.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 8</p>
+<aside>Premier élément = départ (IN), second = arrivée (OUT). Exemple à décoder ensemble. En CFR, l'étape 8 (déchargement au port d'arrivée) sera donc à la charge de l'acheteur.</aside>
+</section>
+<section id="ladder" data-transition="fade" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">From the most to the least inclusive</h2>
+<p style="position:absolute;left:440px;top:270px;width:240px;font-size:24px;font-weight:700;color:#6a7385;text-align:center">Terminal handling</p>
+<p style="position:absolute;left:684px;top:270px;width:220px;font-size:24px;font-weight:700;color:#6a7385;text-align:center">Loading</p>
+<p style="position:absolute;left:908px;top:270px;width:412px;font-size:24px;font-weight:700;color:#6a7385;text-align:center">Sea freight</p>
+<p style="position:absolute;left:1324px;top:270px;width:220px;font-size:24px;font-weight:700;color:#6a7385;text-align:center">Unloading</p>
+<p style="position:absolute;left:1548px;top:270px;width:240px;font-size:24px;font-weight:700;color:#6a7385;text-align:center">Terminal handling</p>
+<p style="position:absolute;left:128px;top:330px;width:280px;font-size:44px;font-weight:800;color:#13294b">FLT</p>
+<p style="position:absolute;left:128px;top:386px;width:290px;font-size:24px;color:#6a7385">Gate In / Gate Out</p>
+<p style="position:absolute;left:440px;top:330px;width:240px;height:96px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">included</p>
+<p style="position:absolute;left:684px;top:330px;width:220px;height:96px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">included</p>
+<p style="position:absolute;left:908px;top:330px;width:412px;height:96px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">included</p>
+<p style="position:absolute;left:1324px;top:330px;width:220px;height:96px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">included</p>
+<p style="position:absolute;left:1548px;top:330px;width:240px;height:96px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">included</p>
+<p style="position:absolute;left:128px;top:480px;width:280px;font-size:44px;font-weight:800;color:#13294b">LILO</p>
+<p style="position:absolute;left:128px;top:536px;width:290px;font-size:24px;color:#6a7385">Liner In / Liner Out</p>
+<p style="position:absolute;left:440px;top:480px;width:240px;height:96px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">separate</p>
+<p style="position:absolute;left:684px;top:480px;width:220px;height:96px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">included</p>
+<p style="position:absolute;left:908px;top:480px;width:412px;height:96px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">included</p>
+<p style="position:absolute;left:1324px;top:480px;width:220px;height:96px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">included</p>
+<p style="position:absolute;left:1548px;top:480px;width:240px;height:96px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">separate</p>
+<p style="position:absolute;left:128px;top:630px;width:280px;font-size:44px;font-weight:800;color:#13294b">FIO</p>
+<p style="position:absolute;left:128px;top:686px;width:290px;font-size:24px;color:#6a7385">Free In / Free Out</p>
+<p style="position:absolute;left:440px;top:630px;width:240px;height:96px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">separate</p>
+<p style="position:absolute;left:684px;top:630px;width:220px;height:96px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">separate</p>
+<p style="position:absolute;left:908px;top:630px;width:412px;height:96px;background:#1677b8;color:#ffffff;border:3px solid #1677b8;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">included</p>
+<p style="position:absolute;left:1324px;top:630px;width:220px;height:96px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">separate</p>
+<p style="position:absolute;left:1548px;top:630px;width:240px;height:96px;background:#ffffff;color:#6a7385;border:3px dashed #9aa2b4;border-radius:12px;font-size:26px;font-weight:700;text-align:center;line-height:3.4">separate</p>
+<p style="position:absolute;left:128px;top:830px;width:1664px;font-size:34px;line-height:1.3;color:#13294b"><b>G &gt; L &gt; F</b> — Gate includes the most, Free the least. FLT = Full Liner Terms.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 9</p>
+<aside>Vue d'ensemble : la prestation « rétrécit » de Gate à Free. Moyen mnémotechnique G > L > F.</aside>
+</section>
+<section id="nine" data-transition="fade" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">The 9 standard liner terms</h2>
+<div style="display:grid;grid-template-columns:300px 1fr 1fr 1fr;gap:12px"><div style="background:#13294b;border-radius:12px;padding:16px"><p style="font-size:26px;font-weight:700;color:#ffffff;text-align:center">IN \ OUT</p></div><div style="background:#13294b;border-radius:12px;padding:16px"><p style="font-size:28px;font-weight:700;color:#ffffff;text-align:center">Free Out</p></div><div style="background:#13294b;border-radius:12px;padding:16px"><p style="font-size:28px;font-weight:700;color:#ffffff;text-align:center">Liner Out</p></div><div style="background:#13294b;border-radius:12px;padding:16px"><p style="font-size:28px;font-weight:700;color:#ffffff;text-align:center">Gate Out</p></div><div style="background:#13294b;border-radius:12px;padding:16px;justify-content:center"><p style="font-size:28px;font-weight:700;color:#ffffff;text-align:center">Gate In</p></div><div style="background:#e6e9fa;border-radius:12px;padding:20px;gap:4px;justify-content:center"><p style="font-size:48px;font-weight:800;color:#3f4aa0;text-align:center">GIFO</p><p style="font-size:24px;color:#13294b;text-align:center">Gate In / Free Out</p></div><div style="background:#e6e9fa;border-radius:12px;padding:20px;gap:4px;justify-content:center"><p style="font-size:48px;font-weight:800;color:#3f4aa0;text-align:center">GILO</p><p style="font-size:24px;color:#13294b;text-align:center">Gate In / Liner Out</p></div><div style="background:#e6e9fa;border-radius:12px;padding:20px;gap:4px;justify-content:center"><p style="font-size:48px;font-weight:800;color:#3f4aa0;text-align:center">FLT</p><p style="font-size:24px;color:#13294b;text-align:center">Gate In / Gate Out</p></div><div style="background:#13294b;border-radius:12px;padding:16px;justify-content:center"><p style="font-size:28px;font-weight:700;color:#ffffff;text-align:center">Liner In</p></div><div style="background:#e6e9fa;border-radius:12px;padding:20px;gap:4px;justify-content:center"><p style="font-size:48px;font-weight:800;color:#3f4aa0;text-align:center">LIFO</p><p style="font-size:24px;color:#13294b;text-align:center">Liner In / Free Out</p></div><div style="background:#e6e9fa;border-radius:12px;padding:20px;gap:4px;justify-content:center"><p style="font-size:48px;font-weight:800;color:#3f4aa0;text-align:center">LILO</p><p style="font-size:24px;color:#13294b;text-align:center">Liner In / Liner Out</p></div><div style="background:#e6e9fa;border-radius:12px;padding:20px;gap:4px;justify-content:center"><p style="font-size:48px;font-weight:800;color:#3f4aa0;text-align:center">LIGO</p><p style="font-size:24px;color:#13294b;text-align:center">Liner In / Gate Out</p></div><div style="background:#13294b;border-radius:12px;padding:16px;justify-content:center"><p style="font-size:28px;font-weight:700;color:#ffffff;text-align:center">Free In</p></div><div style="background:#e6e9fa;border-radius:12px;padding:20px;gap:4px;justify-content:center"><p style="font-size:48px;font-weight:800;color:#3f4aa0;text-align:center">FIO</p><p style="font-size:24px;color:#13294b;text-align:center">Free In / Free Out</p></div><div style="background:#e6e9fa;border-radius:12px;padding:20px;gap:4px;justify-content:center"><p style="font-size:48px;font-weight:800;color:#3f4aa0;text-align:center">FILO</p><p style="font-size:24px;color:#13294b;text-align:center">Free In / Liner Out</p></div><div style="background:#e6e9fa;border-radius:12px;padding:20px;gap:4px;justify-content:center"><p style="font-size:48px;font-weight:800;color:#3f4aa0;text-align:center">FIGO</p><p style="font-size:24px;color:#13294b;text-align:center">Free In / Gate Out</p></div></div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 10</p>
+<aside>3 positions × 2 ports = 9 combinaisons. Faire remplir le tableau vide aux étudiants avant d'afficher celui-ci.</aside>
+</section>
+<section id="incoterms" data-transition="fade" style="background:#f5f6fa;color:#13294b;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<h2 style="font-size:64px;font-weight:800;line-height:1.1;color:#13294b">Liner terms × Incoterms®</h2>
+<p style="font-size:32px;color:#3a4458">The Incoterm® rules <b>seller ↔ buyer</b>. The liner term rules <b>shipper ↔ carrier</b>. Check that they match.</p>
+<div style="display:flex;flex-direction:row;gap:32px"><div style="flex:1;background:#ffffff;border-radius:16px;border-top:10px solid #1f9d55;padding:40px;gap:20px;box-shadow:0px 4px 16px rgba(19,41,75,0.08)"><h3 style="font-size:40px;font-weight:800;color:#13294b">CFR + Free Out</h3><p style="font-size:26px;font-weight:700;color:#1f9d55">Unloading → buyer</p><p style="font-size:28px;line-height:1.4">Unloading is not in the freight: the buyer pays it at the port of arrival (step 8).</p></div><div style="flex:1;background:#ffffff;border-radius:16px;border-top:10px solid #1677b8;padding:40px;gap:20px;box-shadow:0px 4px 16px rgba(19,41,75,0.08)"><h3 style="font-size:40px;font-weight:800;color:#13294b">CFR / CIF + Liner Out</h3><p style="font-size:26px;font-weight:700;color:#1677b8">Unloading → seller</p><p style="font-size:28px;line-height:1.4">Unloading is in the freight paid by the seller, who cannot charge it back to the buyer (Incoterms® 2020).</p></div><div style="flex:1;background:#ffffff;border-radius:16px;border-top:10px solid #d64545;padding:40px;gap:20px;box-shadow:0px 4px 16px rgba(19,41,75,0.08)"><h3 style="font-size:40px;font-weight:800;color:#13294b">FOB + Liner In</h3><p style="font-size:26px;font-weight:700;color:#d64545">Risk: paid twice</p><p style="font-size:28px;line-height:1.4">The seller pays loading under FOB, and the buyer pays it again in the freight. Clarify it in the contract!</p></div></div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6a7385">Liner terms · sea &amp; inland waterway transport · 11</p>
+<aside>Lien avec la méthode en 11 étapes : l'étape 8 (déchargement au port d'arrivée) dépend du liner term en CFR/CIF. Incoterms 2020 : si le contrat de transport inclut des frais de déchargement à destination, le vendeur ne peut pas les récupérer auprès de l'acheteur, sauf accord contraire.</aside>
+</section>
+<section id="yourturn" data-transition="fade" style="background:#13294b;color:#ffffff;font-family:'Nunito Sans', sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:48px">
+<h2 style="font-size:80px;font-weight:800;color:#ffffff">Your turn!</h2>
+<p style="font-size:40px;line-height:1.4;color:#dfe5f2">Decode each term: which steps are included in the freight?</p>
+<div style="display:flex;flex-direction:row;gap:32px">
+<p style="flex:1;background:#8a95d9;color:#ffffff;border-radius:16px;padding:32px;font-size:64px;font-weight:800;text-align:center">GILO</p>
+<p style="flex:1;background:#8a95d9;color:#ffffff;border-radius:16px;padding:32px;font-size:64px;font-weight:800;text-align:center">FIGO</p>
+<p style="flex:1;background:#8a95d9;color:#ffffff;border-radius:16px;padding:32px;font-size:64px;font-weight:800;text-align:center">LIGO</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:32px">
+<p style="font-size:30px;color:#b9c1ef">Then practise online:</p>
+<p style="background:#e8891c;color:#ffffff;border-radius:48px;padding:20px 48px;font-size:36px;font-weight:800;box-shadow:0px 6px 18px rgba(0,0,0,0.25)"><a target="_blank" rel="noopener" href="https://claude.ai/artifact/SmTknq8VdbE7skhcq8NWx4">▶ Open the Practice Lab</a></p>
+</div>
+<aside>Réponses — GILO : manutention terminal départ + chargement + fret + déchargement (pas la manutention terminal à l'arrivée). FIGO : fret + déchargement + manutention terminal à l'arrivée (chargement payé par le chargeur). LIGO : chargement + fret + déchargement + manutention terminal à l'arrivée. Lien vers l'outil d'exercices : à partager avec les étudiants depuis la page de l'artifact.</aside>
+</section>
+</div>
+<div id="bar"><button id="prev">◀</button><span id="cnt"></span><button id="next">▶</button><button id="nb">Notes (N)</button><button id="fs">Full screen (F)</button></div>
+<div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('#stage>section')];let cur=0,step=0;
+function groups(s){const m={};s.querySelectorAll('[data-build-in]').forEach(e=>{const n=parseInt((e.dataset.buildIn.match(/\d+/)||['1'])[0]);(m[n]=m[n]||[]).push(e)});return Object.keys(m).map(Number).sort((a,b)=>a-b).map(k=>m[k]);}
+function show(i,st){cur=Math.max(0,Math.min(S.length-1,i));const g=groups(S[cur]);step=st==='end'?g.length:0;
+ S.forEach((s,k)=>s.classList.toggle('on',k===cur));apply();}
+function apply(){const g=groups(S[cur]);g.forEach((grp,k)=>grp.forEach(e=>e.classList.toggle('hid',k>=step)));
+ document.getElementById('cnt').textContent=(cur+1)+' / '+S.length;
+ const a=S[cur].querySelector('aside');document.getElementById('notes').textContent=a?a.textContent:'';
+ try{history.replaceState(null,'','#'+(cur+1))}catch(e){}}
+function next(){const g=groups(S[cur]);if(step<g.length){step++;apply();}else if(cur<S.length-1)show(cur+1);}
+function prev(){if(step>0&&groups(S[cur]).length&&step>0&&false){} if(cur>0)show(cur-1,'end');}
+function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);document.getElementById('stage').style.transform='translate(-50%,-50%) scale('+k+')';}
+addEventListener('resize',fit);fit();
+document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;
+const N=document.getElementById('notes');function tn(){N.style.display=N.style.display==='block'?'none':'block'}
+document.getElementById('nb').onclick=tn;
+function fsc(){try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(e){}}
+document.getElementById('fs').onclick=fsc;
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next()}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}else if(e.key==='n'||e.key==='N')tn();else if(e.key==='f'||e.key==='F')fsc();else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);});
+document.getElementById('stage').addEventListener('click',e=>{if(!e.target.closest('a'))next()});
+const h=parseInt(location.hash.slice(1));show(isNaN(h)?0:h-1);
+</script></body></html>
